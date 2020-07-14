@@ -1,7 +1,8 @@
 import marked from 'marked';
 import createRenderer, { codeRenderer } from './createRenderer';
 
-export function marksy(options = {}) {
+export function marksy (options = { renderer: {}, tokenizer: {} }) {
+  marked.use({ tokenizer: options.tokenizer })
   const tracker = {
     tree: null,
     elements: null,
@@ -10,8 +11,9 @@ export function marksy(options = {}) {
     currentIdLevel: 0,
     currentId: [],
   };
+
   const renderer = createRenderer(tracker, options, {
-    code(code, language) {
+    code (code, language) {
       if (language === 'marksy') {
         try {
           // eslint-disable-next-line no-plusplus
@@ -22,10 +24,10 @@ export function marksy(options = {}) {
             const componentProps =
               components.indexOf(tag) >= 0
                 ? Object.assign(props || {}, {
-                    // eslint-disable-next-line no-plusplus
-                    key: tracker.nextElementId++,
-                    context: tracker.context,
-                  })
+                  // eslint-disable-next-line no-plusplus
+                  key: tracker.nextElementId++,
+                  context: tracker.context,
+                })
                 : props;
 
             return options.createElement(tag, componentProps, children);
@@ -48,21 +50,23 @@ export function marksy(options = {}) {
       }
       return codeRenderer(tracker, options)(code, language);
     },
+    ...options.renderer
   });
 
-  return function compile(content, markedOptions = {}, context = {}) {
+  return function compile (content, markedOptions = {}, context = {}) {
     tracker.tree = [];
     tracker.elements = {};
     tracker.toc = [];
     tracker.nextElementId = 0;
     tracker.context = context;
     tracker.currentId = [];
+  
     marked(content, { renderer, smartypants: true, ...markedOptions });
 
     return { tree: tracker.tree, toc: tracker.toc };
   };
 }
 
-export default function(options) {
+export default function (options) {
   return marksy(options);
 }

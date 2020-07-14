@@ -9,7 +9,7 @@ import { createElement as infernoCreateElement } from 'inferno-create-element';
 import { render } from '@testing-library/react';
 
 import Prism from 'prismjs';
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 import hljsJs from 'highlight.js/lib/languages/javascript';
 import hljsXml from 'highlight.js/lib/languages/xml';
 

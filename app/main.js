@@ -15,30 +15,30 @@ hljs.registerLanguage('javascript', hljsJavascript);
 
 const compile = marksy({
   createElement: React.createElement,
-  highlight(language, code) {
+  highlight (language, code) {
     return hljs.highlight(language, code).value;
   },
   components: {
-    Row({ children }) {
-      return <div style={{ display: 'flex' }}>{children}</div>;
+    Row ({ children }) {
+      return <div style={ { display: 'flex' } }>{ children }</div>;
     },
-    Col({ children }) {
+    Col ({ children }) {
       return (
         <div
-          style={{
+          style={ {
             flex: '1',
             padding: '10px',
             backgroundColor: '#DADADA',
             border: '1px solid #333',
-          }}
+          } }
         >
-          {children}
+          { children }
         </div>
       );
     },
   },
-  h1(props) {
-    return <h1 style={{ textDecoration: 'underline' }}>{props.children}</h1>;
+  h1 (props) {
+    return <h1 style={ { textDecoration: 'underline' } }>{ props.children }</h1>;
   },
 });
 
@@ -55,6 +55,8 @@ const foo = "bar"
   <Col>Need to tell you something over here</Col>
   <Col>And over here</Col>
 </Row>
+
+@[prezi](preziID)
 `;
 
 class App extends React.Component {
@@ -66,37 +68,37 @@ class App extends React.Component {
     };
   }
 
-  onTextareaChange(event) {
+  onTextareaChange (event) {
     this.setState({
       tree: compile(event.target.value).tree,
       value: event.target.value,
     });
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <h1 style={{ textAlign: 'center' }}>Marksy demo (a blog service)</h1>
+        <h1 style={ { textAlign: 'center' } }>Marksy demo (a blog service)</h1>
         <div
-          style={{
+          style={ {
             width: '50%',
             verticalAlign: 'top',
             display: 'inline-block',
             padding: '0 20px',
-          }}
+          } }
         >
-          {this.state.tree}
+          { this.state.tree }
         </div>
         <textarea
-          style={{
+          style={ {
             width: 500,
             height: 500,
             border: '1px dashed #DADADA',
             outline: 'none',
             padding: '10px',
-          }}
-          onChange={event => this.onTextareaChange(event)}
-          value={this.state.value}
+          } }
+          onChange={ event => this.onTextareaChange(event) }
+          value={ this.state.value }
         />
       </div>
     );

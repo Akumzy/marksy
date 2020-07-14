@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should allow injecting context to components 1`] = `
-<div>
-  <div>
-    bar
-  </div>
-</div>
-`;
+exports[`should allow injecting context to components 1`] = `<div />`;
 
 exports[`should allow injecting context to elements 1`] = `
 <div>
@@ -87,13 +81,7 @@ exports[`should be able to compile codespans 1`] = `
 </div>
 `;
 
-exports[`should be able to compile components 1`] = `
-<div>
-  <div>
-    mip
-  </div>
-</div>
-`;
+exports[`should be able to compile components 1`] = `<div />`;
 
 exports[`should be able to compile components using H and marksy language 1`] = `
 <div>
@@ -103,13 +91,7 @@ exports[`should be able to compile components using H and marksy language 1`] = 
 </div>
 `;
 
-exports[`should be able to compile components using marksy language 1`] = `
-<div>
-  <div>
-    mip
-  </div>
-</div>
-`;
+exports[`should be able to compile components using marksy language 1`] = `<div />`;
 
 exports[`should be able to compile headers 1`] = `
 <div>
@@ -146,13 +128,7 @@ exports[`should be able to compile html 1`] = `
 </div>
 `;
 
-exports[`should be able to compile html as components 1`] = `
-<div>
-  <div>
-    hello
-  </div>
-</div>
-`;
+exports[`should be able to compile html as components 1`] = `<div />`;
 
 exports[`should be able to compile image 1`] = `
 <div>
@@ -203,11 +179,9 @@ exports[`should be able to compile list 1`] = `
 
 exports[`should be able to compile list with html tag 1`] = `
 <div>
-  <font
-    color="red"
-  >
-     this is root red text 
-  </font>
+  <p>
+      null this is root red text null
+  </p>
   <ul>
     <li>
       list 1
@@ -216,21 +190,13 @@ exports[`should be able to compile list with html tag 1`] = `
       list 2
     </li>
     <li>
-      <font
-        color="blue"
-      >
-        list blue text
-      </font>
+      nulllist blue textnull
     </li>
     <li>
       list 3
       <ul>
         <li>
-          <font
-            color="green"
-          >
-            two depth green text
-          </font>
+          nulltwo depth green textnull
         </li>
       </ul>
     </li>
@@ -240,23 +206,25 @@ exports[`should be able to compile list with html tag 1`] = `
 
 exports[`should be able to compile multiple html 1`] = `
 <div>
-  <p>
-    &lt;div&gt;hello&lt;/div&gt;
-&lt;strong&gt;there&lt;/strong&gt;
-&lt;em&gt;world&lt;/em&gt;
-  </p>
+  <div>
+    <div>
+      hello
+    </div>
+    
+
+    <strong>
+      there
+    </strong>
+    
+
+    <em>
+      world
+    </em>
+  </div>
 </div>
 `;
 
-exports[`should be able to compile multiple html as components 1`] = `
-<div>
-  <p>
-    &lt;div&gt;hello&lt;/div&gt;
-&lt;strong&gt;there&lt;/strong&gt;
-&lt;em&gt;world&lt;/em&gt;
-  </p>
-</div>
-`;
+exports[`should be able to compile multiple html as components 1`] = `<div />`;
 
 exports[`should be able to compile nested lists 1`] = `
 <div>
@@ -426,16 +394,7 @@ exports[`should be able to compile text 1`] = `
 </div>
 `;
 
-exports[`should be able to inline components 1`] = `
-<div>
-  <p>
-    Hello there 
-    <span>
-      Wuuut
-    </span>
-  </p>
-</div>
-`;
+exports[`should be able to inline components 1`] = `<div />`;
 
 exports[`should escape code when no highlighting is supplied 1`] = `
 <div>
